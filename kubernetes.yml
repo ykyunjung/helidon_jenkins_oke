@@ -17,7 +17,7 @@ spec:
         color: blue
     spec:
       containers:
-      - name: helidon-movie
+      - name: helidon-movie-api-mp
         image: ${params.DOCKER_REGISTRY}/${params.DOCKER_REPO}:${GIT_COMMIT}
         imagePullPolicy: Always
         ports:
