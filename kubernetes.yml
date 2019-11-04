@@ -25,7 +25,7 @@ spec:
           containerPort: 8080
           protocol: TCP
       imagePullSecrets:
-        - name: ocir_secret
+        - name: ocirsecret
 ---
 apiVersion: v1
 kind: Service
