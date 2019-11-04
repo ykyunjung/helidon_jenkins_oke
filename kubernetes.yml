@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: helidon-movie-api-mp
+  labels:
+    commit: ${GIT_COMMIT}
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: helidon-movie-api-mp
+  template:
+    metadata:
+      labels:
+        app: helidon-movie-api-mp
+        commit: ${GIT_COMMIT}
+        color: blue
+    spec:
+      containers:
+      - name: helidon-movie-api-mp
+        image: ${params.DOCKER_REGISTRY}/${params.DOCKER_REPO}:${GIT_COMMIT}
+        imagePullPolicy: Always
+        ports:
+        - name: helidon-movie-api-mp
+          containerPort: 8080
+          protocol: TCP
+      imagePullSecrets:
+        - name: ocir_secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: helidon-movie-api-mp
+  labels:
+    app: helidon-movie-api-mp
+    commit: ${GIT_COMMIT}
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: helidon-movie-api-mp
+    color: blue
+  type: ClusterIP
+---
