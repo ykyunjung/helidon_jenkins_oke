@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: helidon-movie
-        image: ${params.DOCKER_REGISTRY}/${params.DOCKER_REPO}:${GIT_COMMIT}
+        image: ${DOCKER_REGISTRY}/${DOCKER_REPO}:${GIT_COMMIT}
         imagePullPolicy: Always
         ports:
         - name: helidon-movie
