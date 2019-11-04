@@ -38,8 +38,9 @@ spec:
   ports:
   - port: 8080
     targetPort: 8080
+    name: http
   selector:
     app: helidon-movie
     color: blue
-  type: ClusterIP
+  type: LoadBalancer
 ---
