@@ -15,7 +15,7 @@ pipeline {
                         $class: 'GitSCM',
                         doGenerateSubmoduleConfigurations: false,
                         userRemoteConfigs: [[
-                            url: 'https://github.com/mangdan/helidon_jenkins_oke.git'
+                            url: 'https://github.com/ykyunjung/helidon_jenkins_oke.git'
                           ]],
                         branches: [ [name: '*/master'] ]
                       ])
@@ -30,7 +30,7 @@ pipeline {
                         $class: 'GitSCM',
                         doGenerateSubmoduleConfigurations: false,
                         userRemoteConfigs: [[
-                            url: 'https://github.com/mangdan/helidon_jenkins_oke.git'
+                            url: 'https://github.com/ykyunjung/helidon_jenkins_oke.git'
                           ]],
                         branches: [ [name: '*/master'] ]
                       ])
